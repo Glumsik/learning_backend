@@ -61,7 +61,6 @@ const getDate = {
     }
   },
   d: (arr, number) => {
-    console.log(arr, number);
     if (!!arr.length && arr.includes("add")) {
       date.setDate(date.getDate() + number);
       return date.toLocaleString("ru", fullOptions);
