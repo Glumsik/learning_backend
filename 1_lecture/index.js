@@ -37,36 +37,16 @@ const getDate = {
     return date.toLocaleString("ru", yearOptions);
   },
   month: (arr, number) => {
-    if (!!arr.length && arr.includes("sub")) {
-      date.setMonth(date.getMonth() - number);
-      return date.toLocaleString("ru", fullOptions);
-    } else {
-      return date.toLocaleString("ru", monthOptions);
-    }
+    return subMonth(arr, number);
   },
   m: (arr, number) => {
-    if (!!arr.length && arr.includes("sub")) {
-      date.setMonth(date.getMonth() - number);
-      return date.toLocaleString("ru", fullOptions);
-    } else {
-      return date.toLocaleString("ru", monthOptions);
-    }
+    return subMonth(arr, number);
   },
   date: (arr, number) => {
-    if (!!arr.length && arr.includes("add")) {
-      date.setDate(date.getDate() + number);
-      return date.toLocaleString("ru", fullOptions);
-    } else {
-      return date.toLocaleString("ru", dayOptions);
-    }
+    return addDay(arr, number);
   },
   d: (arr, number) => {
-    if (!!arr.length && arr.includes("add")) {
-      date.setDate(date.getDate() + number);
-      return date.toLocaleString("ru", fullOptions);
-    } else {
-      return date.toLocaleString("ru", dayOptions);
-    }
+    return addDay(arr, number);
   },
   full: () => {
     return date.toLocaleString("ru", fullOptions);
@@ -84,3 +64,20 @@ argvKeys.length > 2
   : (() => {
       console.log(getDate["full"]());
     })();
+
+function subMonth(arr, number) {
+  if (!!arr.length && arr.includes("sub")) {
+    date.setMonth(date.getMonth() - number);
+    return date.toLocaleString("ru", fullOptions);
+  } else {
+    return date.toLocaleString("ru", monthOptions);
+  }
+}
+function addDay(arr, number) {
+  if (!!arr.length && arr.includes("add")) {
+    date.setDate(date.getDate() + number);
+    return date.toLocaleString("ru", fullOptions);
+  } else {
+    return date.toLocaleString("ru", dayOptions);
+  }
+}
