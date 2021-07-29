@@ -37,16 +37,16 @@ const getDate = {
     return date.toLocaleString("ru", yearOptions);
   },
   month: (arr, number) => {
-    return subMonth(arr, number);
+    return getMonth(arr, number);
   },
   m: (arr, number) => {
-    return subMonth(arr, number);
+    return getMonth(arr, number);
   },
   date: (arr, number) => {
-    return addDay(arr, number);
+    return getDay(arr, number);
   },
   d: (arr, number) => {
-    return addDay(arr, number);
+    return getDay(arr, number);
   },
   full: () => {
     return date.toLocaleString("ru", fullOptions);
@@ -65,7 +65,7 @@ argvKeys.length > 2
       console.log(getDate["full"]());
     })();
 
-function subMonth(arr, number) {
+function getMonth(arr, number) {
   if (!!arr.length && arr.includes("sub")) {
     date.setMonth(date.getMonth() - number);
     return date.toLocaleString("ru", fullOptions);
@@ -73,7 +73,7 @@ function subMonth(arr, number) {
     return date.toLocaleString("ru", monthOptions);
   }
 }
-function addDay(arr, number) {
+function getDay(arr, number) {
   if (!!arr.length && arr.includes("add")) {
     date.setDate(date.getDate() + number);
     return date.toLocaleString("ru", fullOptions);
