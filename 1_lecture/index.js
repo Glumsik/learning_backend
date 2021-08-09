@@ -30,27 +30,13 @@ const dayOptions = {
 const date = new Date();
 
 const getDate = {
-  year: () => {
-    return date.toLocaleString("ru", yearOptions);
-  },
-  y: () => {
-    return date.toLocaleString("ru", yearOptions);
-  },
-  month: (arr, number) => {
-    return getMonth(arr, number);
-  },
-  m: (arr, number) => {
-    return getMonth(arr, number);
-  },
-  date: (arr, number) => {
-    return getDay(arr, number);
-  },
-  d: (arr, number) => {
-    return getDay(arr, number);
-  },
-  full: () => {
-    return date.toLocaleString("ru", fullOptions);
-  },
+  year: (arr, number) => getYear(arr, number),
+  y: (arr, number) => getYear(arr, number),
+  month: (arr, number) => getMonth(arr, number),
+  m: (arr, number) => getMonth(arr, number),
+  date: (arr, number) => getDay(arr, number),
+  d: (arr, number) => getDay(arr, number),
+  full: () => date.toLocaleString("ru", fullOptions),
 };
 
 // console.log(argv);
@@ -65,17 +51,42 @@ argvKeys.length > 2
       console.log(getDate["full"]());
     })();
 
+function getYear(arr, number) {
+  if (!!arr.length) {
+    if (arr.includes("sub")) {
+      date.setYear(date.getFullYear() - number);
+    }
+    if (arr.includes("add")) {
+      date.setYear(date.getFullYear() + number);
+    }
+    return date.toLocaleString("ru", fullOptions);
+  } else {
+    return date.toLocaleString("ru", yearOptions);
+  }
+}
+
 function getMonth(arr, number) {
-  if (!!arr.length && arr.includes("sub")) {
-    date.setMonth(date.getMonth() - number);
+  if (!!arr.length) {
+    if (arr.includes("sub")) {
+      date.setMonth(date.getMonth() - number);
+    }
+    if (arr.includes("add")) {
+      date.setMonth(date.getMonth() + number);
+    }
     return date.toLocaleString("ru", fullOptions);
   } else {
     return date.toLocaleString("ru", monthOptions);
   }
 }
+
 function getDay(arr, number) {
-  if (!!arr.length && arr.includes("add")) {
-    date.setDate(date.getDate() + number);
+  if (!!arr.length) {
+    if (arr.includes("sub")) {
+      date.setDate(date.getDate() - number);
+    }
+    if (arr.includes("add")) {
+      date.setDate(date.getDate() + number);
+    }
     return date.toLocaleString("ru", fullOptions);
   } else {
     return date.toLocaleString("ru", dayOptions);
