@@ -1,11 +1,16 @@
 {
-  "name": "2_lecture",
-  "version": "1.0.0",
+  "author": "glumsik",
+  "name": "onpoint-backend-test-nikita-tsapaev",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/Glumsik/learning_backend.git",
+  "repository": "git@github.com:Glumsik/learning_backend.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "keywords": [
+    "onpoint"
+  ],
   "license": "ISC"
 }
