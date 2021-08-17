@@ -23,8 +23,10 @@ if (fileName) {
     const inputNumber = Number(text);
     const finishRes = inputNumber === numberRandom;
 
-    finishRes ? console.log(greenLog, "Угадал!") : console.log(redLog, "Мимо!");
-    writeStream.write(String(finishRes) + "\n", "utf8");
+    finishRes
+      ? console.log(greenLog, "Угадал! Я загадал " + numberRandom)
+      : console.log(redLog, "Мимо! Я загадал " + numberRandom);
+    writeStream.write(String(finishRes) + "\n");
     startGame();
   });
 
