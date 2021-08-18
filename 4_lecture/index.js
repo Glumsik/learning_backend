@@ -22,7 +22,7 @@ const getData = (api) => {
         const parsedData = JSON.parse(data);
 
         if (parsedData.success === false)
-          return console.log(`Город не найден ${city} !`);
+          return console.log(`Не нашел такой городишко ${city} !`);
         else {
           const temp = parsedData.current.temperature;
           const time = parsedData.current.observation_time;
