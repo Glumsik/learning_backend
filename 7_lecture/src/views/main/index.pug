@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block customHead
+  link(href="/main/index.css" type="text/css" rel="stylesheet")
+  script(src='/main/index.js')
+
+block content
+  .main-page
+    h1= title
