@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "fs-extra";
 
 const readFile = (filePath) => {
   return new Promise((resolve) => {

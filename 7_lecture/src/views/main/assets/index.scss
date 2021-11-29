@@ -1,3 +1,9 @@
-.main-page {
-  background-color: green;
+.container_button {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    max-width: 200px;
+    margin-bottom: 10px;
+  }
 }

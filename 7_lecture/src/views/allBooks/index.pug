@@ -1,0 +1,18 @@
+extends ../layout.pug
+
+block customHead
+  link(href="/allBooks/index.css" type="text/css" rel="stylesheet")
+  script(src='/allBooks/index.js')
+
+block content
+  .main-page.container
+    h1.display-4= title
+    .container_table 
+      table.table-success.table-striped
+        thead
+          tr
+            th(scope="col") id
+            th(scope="col") Имя
+            th(scope="col") Автор
+        tbody
+         

@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
-import bookRouter from "./router/book/book.controller.js";
+import bookPageRouter from "./router/bookPage/bookPage.controller.js";
+import bookResponceRouter from "./router/bookResponce/bookResponce.controller.js";
 
 const app = express();
 
@@ -10,7 +11,8 @@ app.use(express.static("public"));
 app
   .use(express.urlencoded({ extended: true }))
   .use(express.json())
-  .use(bookRouter());
+  .use(bookPageRouter())
+  .use(bookResponceRouter());
 
 app.listen(3000, () => {
   console.log("server start");

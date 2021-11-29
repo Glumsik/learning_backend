@@ -5,5 +5,8 @@ block customHead
   script(src='/main/index.js')
 
 block content
-  .main-page
-    h1= title
+  .main-page.container
+    h1.display-4= title
+    .container_button 
+      a(type="button" class="btn btn-primary" href='/allBooks') Посмотреть все книги
+      a(type="button" class="btn btn-primary") Добавить книгу
