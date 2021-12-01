@@ -1,0 +1,14 @@
+extends ../layout.pug
+
+block customHead
+  link(href="/viewBook/index.css" type="text/css" rel="stylesheet")
+  script(src='/viewBook/index.js')
+
+block content
+  .main-page.container
+    h1.display-4= title
+    each item in book
+      div(class="input-group input-group-sm mb-3")
+        span(class="input-group-text" id="inputGroup-sizing-sm")= item
+        input(disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm")
+

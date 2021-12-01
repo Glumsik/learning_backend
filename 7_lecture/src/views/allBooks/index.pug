@@ -13,6 +13,13 @@ block content
           tr
             th(scope="col") id
             th(scope="col") Имя
-            th(scope="col") Автор
         tbody
+          each book in allBooks
+            tr 
+              th= book.id
+              th= book.title
+              th 
+                a(href='/updateBook/'+book.id class="icon-pencil")
+              th 
+                a(href='/viewBook/'+book.id class="icon-eye-open")
          

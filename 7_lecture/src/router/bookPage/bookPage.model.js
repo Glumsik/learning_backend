@@ -1,3 +1,6 @@
+import { readFile, writeFile } from "../../utils/utils";
+const booksPath = "./src/books.json";
+
 class BookPageHandler {
   constructor() {}
 
@@ -5,8 +8,27 @@ class BookPageHandler {
     res.render("main/index", { title: "Главная" });
   }
 
-  booksPage(_, res) {
-    res.render("allBooks/index", { title: "Все книги" });
+  booksPage = async (_, res) => {
+    const allBooks = await readFile(booksPath);
+    res.render("allBooks/index", { title: "Все книги", allBooks: allBooks });
+  };
+
+  viewBook = async (req, res) => {
+    const allBooks = await readFile(booksPath);
+    const params = req.params.id;
+    console.log(params);
+    res.render("viewBook/index", {
+      title: "Просмотр книги",
+      book: Object.values(allBooks[params]),
+    });
+  };
+
+  updateBook(_, res) {
+    res.render("updateBook/index", { title: "Обновить книгу" });
+  }
+
+  createBook(_, res) {
+    res.render("createBook/index", { title: "Создать книгу" });
   }
 }
 

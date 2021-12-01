@@ -6,7 +6,7 @@ const bookResponceRouter = () => {
 
   const bookResponceHandler = new BookResponceHandler();
 
-  book.route("/book/all").get(bookResponceHandler.allBook);
+  // book.route("/").get(bookResponceHandler.updateBook);
 
   return book;
 };
