@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","mappings":"mBAGEA,QAAQC,IAAI,gC","sources":["webpack://7_lecture/./src/views/main/assets/index.js"],"sourcesContent":["import \"./index.scss\";\r\n\r\nconst a = () => {\r\n  console.log(\"asdasdasdasdasdasdasdasdasd\");\r\n};\r\n\r\na();\r\n"],"names":["console","log"],"sourceRoot":""}

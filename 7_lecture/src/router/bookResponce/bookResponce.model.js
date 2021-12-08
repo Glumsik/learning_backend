@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "../../utils/utils";
+import { readFile, writeFile } from "../../utils/utils.js";
 const booksPath = "./src/books.json";
 
 class BookResponceHandler {

@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "../../utils/utils";
+import { readFile, writeFile } from "../../utils/utils.js";
 const booksPath = "./src/books.json";
 
 class BookPageHandler {
@@ -16,10 +16,14 @@ class BookPageHandler {
   viewBook = async (req, res) => {
     const allBooks = await readFile(booksPath);
     const params = req.params.id;
-    console.log(params);
+    const book = allBooks[params];
     res.render("viewBook/index", {
       title: "Просмотр книги",
-      book: Object.values(allBooks[params]),
+      id: book.id,
+      name: book.title,
+      description: book.description,
+      authors: book.authors,
+      cover: book.cover,
     });
   };
 

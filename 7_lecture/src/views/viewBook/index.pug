@@ -7,8 +7,22 @@ block customHead
 block content
   .main-page.container
     h1.display-4= title
-    each item in book
-      div(class="input-group input-group-sm mb-3")
-        span(class="input-group-text" id="inputGroup-sizing-sm")= item
-        input(disabled type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm")
+    form.mt-4
+      .form-group
+        h2 id
+        h5= id
+      .form-group
+        h2 Название
+        h5= name
+      .form-group
+        h2 Описание
+        h5= description
+      .form-group
+        h2 Автор
+        h5= authors
+      .form-group
+        h2 Обложка
+        img(src=`../${cover}`) 
+    a(type="button" class="btn btn-primary" href='/update') Изменить
+
 

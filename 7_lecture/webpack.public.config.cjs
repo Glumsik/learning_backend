@@ -1,8 +1,19 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const defaultConfig = {
-  plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })],
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "src/views/images",
+          to: path.resolve(__dirname, `./public/images/`),
+        },
+      ],
+    }),
+  ],
   devtool: "source-map",
   module: {
     rules: [
@@ -20,10 +31,6 @@ const defaultConfig = {
             plugins: ["@babel/plugin-transform-runtime"],
           },
         },
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
       },
     ],
   },
